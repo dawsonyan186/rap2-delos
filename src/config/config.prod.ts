@@ -1,7 +1,7 @@
 import { IConfigOptions } from "../types";
 
 // 先从环境变量取配置
-let config: IConfigOptions =  {
+let config: IConfigOptions = {
     version: '2.3',
     serve: {
         port: (process.env.EXPOSE_PORT && parseInt(process.env.EXPOSE_PORT)) || 8080,
@@ -27,16 +27,17 @@ let config: IConfigOptions =  {
     },
     redis: {
         host: process.env.REDIS_URL || 'localhost',
-        port: (process.env.REDIS_PORT && parseInt(process.env.REDIS_PORT)) || 6379
+        port: (process.env.REDIS_PORT && parseInt(process.env.REDIS_PORT)) || 6379,
+        password: process.env.REDIS_PASSWORD || '',
     },
     mail: {
-      host: 'smtp-mail.outlook.com',
-      port: 587,
-      secure: false,
-      auth: {
-          user: 'rap2_notify@outlook.com',
-          pass: ''
-      }
+        host: 'smtp-mail.outlook.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: 'rap2_notify@outlook.com',
+            pass: ''
+        }
     },
     mailSender: 'rap2_notify@outlook.com',
 }
